@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> ejemplo1 vue.js</title>
+</head>
+
+<!--ejemplo basico usando Vue -->
+<body>
+	<div id="root"> 
+		<!--<p>
+			el valor dinamico que  estamos cambiando con vue es : {{mensaje}}
+		</p>-->
+      <ul>
+         <li v-for="nombres in mensaje">
+            {{ nombres}}
+         </li>
+      </ul>
+      <h3>
+         Mostrando con una funcion del vue 
+      </h3>
+      <ul>
+         <li v-for='nombres in mensaje' v-text='nombres'> <!-- en este caso estoy agregando el campo nombres con un funcion de vue -->
+            
+         </li>
+      </ul>
+      <input type="text" id="input">
+      <button id="button"> 
+         agregar a Lista
+      </button>
+	</div>
+   
+   <script src="https://unpkg.com/vue/dist/vue.js"></script>
+   <script type="text/javascript">
+   	/*let data={
+   		mensaje: "hola mundo en vue "
+   	};*/
+   	var app = new Vue({
+   		el:'#root',
+   		
+   		data:{
+   		mensaje: ['emerson ','Alexander',' Dominguez']  ///  estoy declarando un array 
+   		}
+   	});
+
+       // haciendo el evento de click con javascript 
+       document.querySelector('#button').addEventListener('click',() =>{ // al documento hago una consulta con query selecto  encuentro el id de boton  , agrego un evento  boton en este caso click 
+         let agrego = document.querySelector('#input');  // asigo la etiqueta input a la variable agrego 
+         if(agrego.value=='')
+         {
+            alert('vacio');
+         }
+         else
+         {
+            app.mensaje.push(agrego.value);  //  agrego a nuestra variable que se asigo el objeto vue 
+             agrego.value='';  // limpio (agrego ) a que le asigne el input 
+         }
+         
+
+       });
+   </script>
+</body>
+
+</html>

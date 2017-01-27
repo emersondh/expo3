@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> ejemplo1 vue.js</title>
+</head>
+
+<!--ejemplo basico usando Vue -->
+<body>
+	<div id="root">
+		<input type="text" id="input" v-model="mensaje"> 
+		<p>
+			el valor dinamico que  estamos cambiando con vue es : {{mensaje}}
+		</p>
+      <hr>
+      <h1>
+         {{mensaje}}
+      </h1>
+	</div>
+   
+   <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+   <script type="text/javascript">
+   	
+   	new Vue({
+   		el:'#root',  ///  desde donde afectara el vue 
+
+   		data:{
+   		mensaje: " " //  una variable que estoy declarando en el vue 
+   		}
+   	})
+   	///document.querySelector('#input').value=data.mensaje;
+   </script>
+</body>
+
+</html>

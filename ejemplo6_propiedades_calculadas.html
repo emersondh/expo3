@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> ejemplo1 vue.js</title>
+   <style type="text/css">
+      .clase_roja 
+      {
+         color: red;
+         width: 20%;
+      }
+      .otraclase{
+         color: blue;
+         width: 20%;
+      }
+   </style>
+</head>
+
+<!--ejemplo basico usando Vue -->
+<body>
+   <div id="root"> 
+     
+      <h1 v-text='new Date()'>  <!--saco la hora del sistema ( funcion predeterminada)-->
+         
+      </h1>
+      <hr>
+      <h1>
+         {{mensaje.split('').reverse('').join('')}}  <!--funcion para revertir el mensaje -->
+      </h1>
+      <hr>
+      <h1> 
+          llamado desde la propiedad computada --> {{revertir_mensaje}}
+      </h1>
+
+
+   </div>
+   
+   <script src="https://unpkg.com/vue/dist/vue.js"></script>
+   <script type="text/javascript">
+      /*let data={
+         mensaje: "hola mundo en vue "
+      };*/
+      var app = new Vue({
+         el:'#root',
+         
+         data:{
+
+            mensaje: "hola mundo "
+           
+         },
+         computed:
+         {
+            revertir_mensaje()
+            {
+                return this.mensaje.split('').reverse('').join('');
+            }
+
+         },
+
+         methods:
+         {
+            alerta()
+            {
+               alert("hola alerta");
+            }
+         }
+
+      });
+
+      
+   </script>
+</body>
+
+</html>

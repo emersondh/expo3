@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> ejemplo1 vue.js</title>
+   <style type="text/css">
+      .clase_roja 
+      {
+         color: red;
+         width: 20%;
+      }
+      .otraclase{
+         color: blue;
+         width: 20%;
+      }
+   </style>
+</head>
+
+<!--ejemplo basico usando Vue -->
+<body>
+   <div id="root"> 
+      <!--<p>
+         el valor dinamico que  estamos cambiando con vue es : {{mensaje}}
+      </p>-->
+
+      <button v-bind:title='titulo'  v-on:click='alerta'>  <!--nota :  el v-bind es para modificar los atributos de la etiqueta y el v-on es para modificar los eventos  -->
+         atributo
+      </button>
+      <br>
+      <hr>
+
+      <button :title='titulo'  @click='alerta'>  <!--nota :Los alias simplifican los eventos -->
+            ALIAS 
+      </button>
+      <br>
+      <hr>
+      <h2> Modificando la clase de la etiqueta con vue </h2>
+      <i>
+         con el v-bind
+      </i>
+      <h1 v-bind:class="clasname" >
+         cambiando de color 
+      </h1>
+      <i>
+         sin el v-bind
+      </i>
+      <h1 :class="otraclase" >
+         cambiando de color 
+      </h1>
+
+      
+   </div>
+   
+   <script src="https://unpkg.com/vue/dist/vue.js"></script>
+   <script type="text/javascript">
+      /*let data={
+         mensaje: "hola mundo en vue "
+      };*/
+     new Vue({
+         el:'#root',
+         
+         data:{
+
+            clasname:'clase_roja',
+            titulo:'saludando desde vue',
+            otraclase: 'otraclase'
+            
+         },
+
+         methods:
+         {
+            alerta()
+            {
+               alert("hola alerta");
+            }
+         }
+
+      });
+
+      
+   </script>
+</body>
+
+</html>

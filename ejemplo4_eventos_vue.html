@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> ejemplo1 vue.js</title>
+</head>
+
+<!--ejemplo basico usando Vue -->
+<body>
+	<div id="root"> 
+		<!--<p>
+			el valor dinamico que  estamos cambiando con vue es : {{mensaje}}
+		</p>-->
+      <ul>
+         <li v-for="nombres in mensaje">
+            {{ nombres}}
+         </li>
+      </ul>
+      <h3>
+         Mostrando con una funcion del vue 
+      </h3>
+      <ul>
+         <li v-for='nombres in mensaje' v-text='nombres'> <!-- en este caso estoy agregando el campo nombres con un funcion de vue -->
+            
+         </li>
+      </ul>
+      <input type="text" id="input" v-model='nuevo_nombre' v-on:keyup.enter='agrego_nombre'>
+      <button id="button" v-on:click='agrego_nombre'  > 
+         agregar a Lista
+      </button>
+	</div>
+   
+   <script src="https://unpkg.com/vue/dist/vue.js"></script>
+   <script type="text/javascript">
+   	/*let data={
+   		mensaje: "hola mundo en vue "
+   	};*/
+   	var app = new Vue({
+   		el:'#root',
+   		
+   		data:{
+            nuevo_nombre:'',
+      		mensaje: ['emerson ','Alexander',' Dominguez']  ///  estoy declarando un array 
+   		},
+
+         methods:
+         {
+            agrego_nombre()
+            {
+               //alert('hola mundo ');
+               this.mensaje.push(this.nuevo_nombre);
+
+               this.nuevo_nombre='';
+
+            }
+         }
+
+   	});
+
+      
+   </script>
+</body>
+
+</html>
